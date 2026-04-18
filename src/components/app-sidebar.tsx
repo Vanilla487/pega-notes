@@ -20,7 +20,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import { HomeIcon, Minus, Plus } from "lucide-react"
+import { Minus, Plus } from "lucide-react"
 
 const menuItems = [
   { title: "Home", url: "#" },
@@ -49,7 +49,6 @@ const contentItems = [
 
 export function AppSidebar() {
   const { state } = useSidebar()
-  const isCollapsed = state === "collapsed"
 
   return (
     <Sidebar variant="sidebar" collapsible="icon" className="drop-shadow-sm">
