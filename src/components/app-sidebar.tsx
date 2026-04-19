@@ -20,7 +20,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import { Minus, Plus } from "lucide-react"
+import { ChevronDown, ChevronRight } from "lucide-react"
 
 const menuItems = [
   { title: "Home", url: "#" },
@@ -33,17 +33,20 @@ const contentItems = [
   {
     title: "Best Practices",
     url: "#",
-    items: [{ title: "Error Handling" }, { title: "Commit" }],
+    items: [{ title: "Error Handling inside Data Flows" }, { title: "Commit" }],
   },
   {
     title: "Technical Hurdles",
     url: "#",
-    items: [{ title: "Error Handling" }, { title: "Commit" }],
+    items: [
+      { title: "How to index from a Data Flow" },
+      { title: "Enabling Reporting from Embedded Pages" },
+    ],
   },
   {
     title: "Deployments",
     url: "#",
-    items: [{ title: "Error Handling" }, { title: "Commit" }],
+    items: [{ title: "Updating the Product Rule for Deployment" }],
   },
 ]
 
@@ -82,7 +85,7 @@ export function AppSidebar() {
           <SidebarMenu>
             {menuItems.map((item) => (
               <SidebarMenuButton
-                className="text-primary hover:bg-transparent"
+                className="font-inter font-medium text-brand-dark hover:bg-transparent"
                 key={item.title}
                 asChild
               >
@@ -94,19 +97,19 @@ export function AppSidebar() {
           </SidebarMenu>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-primary">
-            Recently Viewed
+          <SidebarGroupLabel className="font-mono font-medium text-primary">
+            Content Categories
           </SidebarGroupLabel>
           <SidebarMenu>
             {contentItems.map((item) => (
               <Collapsible key={item.title} className="group/collapsible">
                 <SidebarMenuItem>
                   <CollapsibleTrigger asChild>
-                    <SidebarMenuButton className="text-secondary">
+                    <SidebarMenuButton className="text-secondary hover:bg-transparent">
                       {item.title}
                       {""}
-                      <Plus className="ml-auto group-data-[state=open]/collapsible:hidden" />
-                      <Minus className="ml-auto group-data-[state=closed]/collapsible:hidden" />
+                      <ChevronRight className="ml-auto group-data-[state=open]/collapsible:hidden" />
+                      <ChevronDown className="ml-auto group-data-[state=closed]/collapsible:hidden" />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
                   {item.items?.length ? (
@@ -115,10 +118,10 @@ export function AppSidebar() {
                         {item.items.map((item) => (
                           <SidebarMenuSubItem key={item.title}>
                             <SidebarMenuSubButton
-                              className="text-secondary-foreground"
+                              className="font-mono text-secondary-foreground hover:bg-transparent"
                               asChild
                             >
-                              <a>{item.title}</a>
+                              <a>- {item.title}</a>
                             </SidebarMenuSubButton>
                           </SidebarMenuSubItem>
                         ))}
@@ -131,7 +134,15 @@ export function AppSidebar() {
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="h-12" />
+      <SidebarFooter
+        className={
+          state === "collapsed"
+            ? "hidden"
+            : "justify-content block flex h-12 border-t font-mono text-brand-light"
+        }
+      >
+        <p className="ml-2">@lewischristie</p>
+      </SidebarFooter>
     </Sidebar>
   )
 }

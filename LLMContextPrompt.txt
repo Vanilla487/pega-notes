@@ -1,0 +1,33 @@
+Here is a comprehensive breakdown of every technology found in your codebase:
+
+1. Core Framework & Language
+React 19 (^19.2.4): You are using the latest major version of React, which introduces features like Actions, the use API, and improved document metadata handling.
+TypeScript (~5.9.3): Your project is strictly typed. You're using a very recent version of TypeScript for static type checking.
+Vite 7 (^7.3.1): A modern build tool that provides an extremely fast development environment and optimized production builds.
+2. Styling & Design System
+Tailwind CSS 4 (^4.2.1): You have adopted the latest version of Tailwind, which features a high-performance Rust-based engine and simplified configuration.
+@tailwindcss/vite: A dedicated plugin for seamless integration between the Tailwind v4 engine and the Vite bundler.
+Radix UI (^1.4.3): A library of unstyled, accessible UI primitives. This forms the foundation of your interactive components (like dialogs, dropdowns, etc.).
+shadcn (^4.2.0): This indicates you are likely using the shadcn/ui ecosystem to build your component library by composing Radix primitives with Tailwind.
+Lucide React (^1.8.0): A clean and consistent icon library.
+@fontsource-variable/inter: You are using the Inter variable font, which allows for granular control over font weight and styles in a single file.
+3. CSS Utilities
+class-variance-authority (CVA): Used to create CSS-in-TS tools for managing component variants (e.g., different button sizes or colors) in a type-safe way.
+tailwind-merge & clsx: These are used together to conditionally join CSS classes and resolve Tailwind class conflicts intelligently.
+tw-animate-css: Likely used for managing Tailwind-driven animations.
+4. Code Quality & Tooling
+ESLint 9 (^9.39.4): You are using the "Flat Config" version of ESLint.
+eslint-plugin-react-hooks & eslint-plugin-react-refresh: Specialized linting for React state and Hot Module Replacement (HMR).
+typescript-eslint: Enables ESLint to parse and lint TypeScript code.
+Prettier 3 (^3.8.1): An opinionated code formatter.
+prettier-plugin-tailwindcss: Automatically sorts your Tailwind classes for better readability and consistency.
+5. Backend & Runtime (Evidence from Node Modules)
+While not listed as direct dependencies in your root package.json, the following technologies are present in your project's context, likely as transitive dependencies or parts of a sub-project:
+
+Hono (@hono/node-server): A small, fast, and web-standard based web framework.
+cors: Middleware for handling Cross-Origin Resource Sharing.
+@humanfs/core: A modern, runtime-agnostic file system abstraction.
+cosmiconfig: Used for searching and loading configuration files (likely used by your linting or build tools).
+Async: A utility module which provides functions for working with asynchronous JavaScript (seen in the doUntil.js and series.js files).
+6. Deployment
+gh-pages: You are configured to deploy this application to GitHub Pages, as evidenced by the homepage field and the deploy scripts.

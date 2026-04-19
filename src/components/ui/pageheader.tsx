@@ -1,4 +1,4 @@
-export default function ArticleHeader() {
+export default function PageHeader() {
   return (
     <header className="flex h-16 w-full items-center pl-4 md:pr-12">
       <div className="flex w-full justify-end">
